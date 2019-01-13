@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints>
+    <endpoint path="/site/{costCentre}/contacts/data-sharing/{identityProviderId}/{identityProviderUserId}/students/{studentId}/{paths: .+}">
+        <!-- path is the parameterized external api path -->
+ 
+        <!-- MemberAccess table service name -->
+        <serviceName>StudentTimetable</serviceName>
+ 
+        <!-- internal path is the path on the internal API to call -->
+        <internalPath>/{authCode}/site/{costCentre}/contacts/data-sharing/{identityProviderId}/{identityProviderUserId}/students/{studentId}</internalPath>
+    </endpoint>
+    <endpoint path="/site/{costCentre}/contacts/data-sharing/{identityProviderId}/{identityProviderUserId}/students/{studentId}">
+        <!-- path is the parameterized external api path -->
+ 
+        <!-- MemberAccess table service name -->
+        <serviceName>ChildLink</serviceName>
+ 
+        <!-- internal path is the path on the internal API to call -->
+        <internalPath>/{authCode}/site/{costCentre}/contacts/data-sharing/{identityProviderId}/{identityProviderUserId}/students/{studentId}</internalPath>
+    </endpoint>
+ 
+    <endpoint path="/site/{costCentre}/students/search/contact">
+        <!-- path is the parameterized external api path -->
+  
+        <!-- MemberAccess table service name -->
+        <serviceName>ChildLink</serviceName>
+  
+        <!-- internal path is the path on the internal API to call -->
+        <internalPath>/{authCode}/site/{costCentre}/students/search/contact</internalPath>
+    </endpoint>
+ 
+    <endpoint path="/site/{costCentre}/contacts/data-sharing/link">
+        <!-- path is the parameterized external api path -->
+  
+        <!-- MemberAccess table service name -->
+        <serviceName>ChildLink</serviceName>
+  
+        <!-- internal path is the path on the internal API to call -->
+        <internalPath>/{authCode}/site/{costCentre}/contacts/data-sharing/link</internalPath>
+    </endpoint>
+         
+</endpoints>
