@@ -26,8 +26,9 @@ public class XmlParser {
 
     private List<XmlConfig> xmlConfigList = new ArrayList<>();
 
-    public void loadConfig(File xmlFile, String real) throws ParserConfigurationException, IOException, SAXException {
+    public boolean loadConfig(File xmlFile, String real) throws ParserConfigurationException, IOException, SAXException {
         XmlConfig xmlConfig = new XmlConfig();
+        boolean validEndpoint = false;
 
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -46,14 +47,18 @@ public class XmlParser {
                 if (b){
                     System.out.println(eElement.getElementsByTagName("serviceName").item(0).getTextContent());
                     System.out.println(eElement.getElementsByTagName("internalPath").item(0).getTextContent());
+                    validEndpoint = true;
+                }else {
+                    System.out.println("NO MATCHING FOUND");
+                    validEndpoint = false;
                 }
-
 //                xmlConfig.setPath(eElement.getAttribute("path"));
 //                xmlConfig.setServiceName(eElement.getElementsByTagName("serviceName").item(0).getTextContent());
 //                xmlConfig.setInternalPath(eElement.getElementsByTagName("internalPath").item(0).getTextContent());
 //                xmlConfigList.add(xmlConfig);
             }
         }
+        return validEndpoint;
     }
 
     public boolean validatePath(String realEndPoint, String path){
@@ -110,7 +115,6 @@ public class XmlParser {
             match = studentPattern.matcher(split[7]).matches();
         }
         return match;
-
     }
 
 }
