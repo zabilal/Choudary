@@ -29,4 +29,13 @@ public class XmlConfig {
     public void setInternalPath(String internalPath) {
         this.internalPath = internalPath;
     }
+
+    @Override
+    public String toString() {
+        return "XmlConfig{" +
+                "path='" + path + '\'' +
+                ", serviceName='" + serviceName + '\'' +
+                ", internalPath='" + internalPath + '\'' +
+                '}';
+    }
 }
